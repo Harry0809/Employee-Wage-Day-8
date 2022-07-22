@@ -1,37 +1,33 @@
 package com.employee.wage;
 
 
-public class EmployeeWages {
+public class EmployeeWage {
+	public static void main(String args[]) {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(" Welcome to employee wage computation");
+		System.out.println("Welcome to Employee Attendance");
 
-		int wagePerHour = 20;
-		int numberOfHourPerFullDay = 8;
-		int numberOfHourPerPartDay = 4;
-		int wageOfTheDay = 0;
+		EmployeeWage Wage = new EmployeeWage();
+		Wage.Employee();
+	}
 
-		int employeeAttendance = (int) (Math.floor(Math.random() * 10)) % 2;
-		switch (employeeAttendance) {
+	public void Employee() {
+		int noOfhourperday = 8;
+		int Wageperhr = 20;
+		int Attendance = 1;
+		double randomCheck = (Math.floor(Math.random() * 10)) % 2;
+		if (Attendance == randomCheck) {
 
-		case 1:
-			System.out.println("Emoloyee is working full day");
-			wageOfTheDay = numberOfHourPerFullDay * wagePerHour;
-			System.out.println("full day wage of the employee is" + " " + wageOfTheDay);
-			break;
+			if (noOfhourperday == 8) {
+				System.out.println("Employee is present");
+				int totalWage = noOfhourperday * Wageperhr;
+				System.out.println("wage per day is:" + totalWage);
 
-		case 2:
-			System.out.println("Employee is working part day");
-			wageOfTheDay = numberOfHourPerPartDay * wagePerHour;
-			System.out.println("Part time  wage of employee is" + " " + wageOfTheDay);
-			break;
-
-		default:
-			System.out.println("employee is not working today");
-			break;
-
+			}
 		}
 
+		else {
+			System.out.println(" Employee is Absent");
+		}
 	}
+
 }
