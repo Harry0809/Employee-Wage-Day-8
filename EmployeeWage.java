@@ -1,6 +1,7 @@
 package com.employee.wage;
 
-public class EmployeeWage {
+
+public class EmployeeWages {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
