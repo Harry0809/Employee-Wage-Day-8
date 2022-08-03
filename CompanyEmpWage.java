@@ -1,5 +1,7 @@
 package com.employee.wage;
 
+import java.util.Iterator;
+
 public class CompanyEmpWage {
 
 	public String company;
@@ -20,7 +22,7 @@ public class CompanyEmpWage {
 	}
 
 	public String toString() {
-		return "Total Emp Wage for Company:" + company + "is: " + totalEmpWage;
+		return "Employee Wage for Company" + company + "is: " + totalEmpWage;
 
 	}
 
