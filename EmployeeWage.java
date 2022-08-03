@@ -33,7 +33,7 @@ public class EmployeeWage {
 	private void computeEmpWage() {
 		for (int i = 0; i < list.size(); i++) {
 			CompanyEmpWage companyEmpWage = list.get(i);
-			companyEmpWage.settotalEmpWage(this.computeEmpWage(companyEmpWage));
+			companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
 			System.out.println(companyEmpWage);
 		}
 	}
@@ -42,7 +42,7 @@ public class EmployeeWage {
 		int totalWorkinghour = 0;
 		int days = 0;
 		int empHrs = 0;
-		int dailyEmpWage = 0;
+		// int dailyEmpWage=0;
 		System.out.println();
 		System.out.println(companyEmpWage.company);
 		while (totalWorkinghour <= maxhours_inMonth && days < companyEmpWage.working_DayperMonth) {
@@ -52,19 +52,12 @@ public class EmployeeWage {
 
 			case IS_PART_TIME:
 				empHrs = 4;
-				dailyEmpWage = companyEmpWage.wagePerhour * empHrs;
-				System.out.println("Part Time Employee wages :" + "\nWages Per Hour :\t" + companyEmpWage.wagePerhour
-						+ "\nWorking Days   :\t" + companyEmpWage.working_DayperMonth + "\nWorking Hour   :\t" + empHrs
-						+ "\nDaily Wage of an Employee : " + dailyEmpWage);
+				calculateWage(companyEmpWage, companyEmpWage.wagePerhour, empHrs);
 				break;
 
 			case IS_FULL_TIME:
 				empHrs = 8;
-				dailyEmpWage = companyEmpWage.wagePerhour * empHrs;
-				System.out.println("Full Time Employee wages :" + "\nWages Per Hour :\t" + companyEmpWage.wagePerhour
-						+ "\nWorking Days   :\t" + companyEmpWage.working_DayperMonth + "\nWorking Hour   :\t" + empHrs
-						+ "\nDaily Wage of an Employee : " + dailyEmpWage);
-
+				calculateWage(companyEmpWage, companyEmpWage.wagePerhour, empHrs);
 				break;
 
 			default:
@@ -75,6 +68,15 @@ public class EmployeeWage {
 			System.out.println("");
 		}
 		return totalWorkinghour * companyEmpWage.wagePerhour;
+	}
+
+	public void calculateWage(CompanyEmpWage company, int wagePerHour, int empHrs) {
+		int dailyEmpWage = 0;
+		dailyEmpWage = company.wagePerhour * empHrs;
+		System.out.println("Part Time Employee wages :" + "\nWages Per Hour :\t" + company.wagePerhour
+				+ "\nWorking Days   :\t" + company.working_DayperMonth + "\nWorking Hour   :\t" + empHrs
+				+ "\nDaily Wage of an Employee : " + dailyEmpWage);
+
 	}
 
 	public static void main(String[] args) {
